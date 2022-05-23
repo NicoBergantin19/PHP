@@ -17,7 +17,7 @@
         try
         {
             $conDB=new mysqli('localhost','root',NULL,'basamento_di_dati');
-            echo "connessione effettuata"."<br>";
+            //echo "connessione effettuata"."<br>";
         }
         catch (Exception $x)
         {
@@ -31,7 +31,7 @@
         try
         {
             $ris = $conDB->query("INSERT INTO utenti(Nome, Cognome, Username, Password) VALUES ('$nome', '$cognome', '$user','$pws')");
-            echo "Inserimento eseguito"."<br>";
+            echo "Utente registrato correttamente"."<br>";
         }
         catch(Exception $x)
         {
@@ -40,21 +40,21 @@
         $conDB->close();
     }
     else{
-        echo "<body>
+        echo '<body>
         <h2>REGISTRAZIONE</h2>
-        <form action='".$_SERVER['PHP_SELF']."' method='POST'>
-        <label for='Nome'>NOME</label>
-        <input type='text' name='Nome'> </br></br>
-        <label for='Cognome'>COGNOME</label>
-        <input type='text' name='Cognome'> </br></br>
-        <label for='Username'>USERNAME</label>
-        <input type='text' name='Username'> </br></br>
-        <label for='Password'>PASSWORD</label>
-        <input type='text' name='Password'> </br></br>
-        <input type='submit' name='submit' value='invia'></br></br>
-        <!--controllare se si ha effettivamente inviato qualcosa -->
+        <form action="".$_SERVER["PHP_SELF"]."" method="POST">
+            <label for="Nome">NOME</label>
+            <input type="text" name="Nome"> </br></br>
+            <label for="Cognome">COGNOME</label>
+            <input type="text" name="Cognome"> </br></br>
+            <label for="Username">USERNAME</label>
+            <input type="text" name="Username"> </br></br>
+            <label for="Password">PASSWORD</label>
+            <input type="text" name="Password"> </br></br>
+            <input type="submit" name="submit" value="INVIA"></br></br>
+            <input type="reset" name="reset" value="RESET"></br></br>
         </form>
-        </body>";
+        </body>';
     }
     
     ?>

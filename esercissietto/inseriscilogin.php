@@ -26,13 +26,12 @@
 
         try 
         {
-            $query = $conDB->query("SELECT Username FROM utenti WHERE Username='$user';"); 
-            if (mysqli_fetch_row($query) != 0) 
-            { 
-                echo "Ciao $user"; 
-            } 
-            else
-            {
+            $sql = "SELECT Nome, Cognome FROM utenti WHERE Username='$user' AND Password = '$pws';"; 
+            $result = $conDB -> query($sql);
+            $row = $result-> fetch_assoc();
+            if ($row) 
+                echo "Ciao ".$row["Nome"]." ".$row["Cognome"];
+            else{
                 echo "Utente non registrato";
                 echo '<a href="inserimento.php"><button type="submit" value="submit">REGISTRATI</button></a>';
             }
